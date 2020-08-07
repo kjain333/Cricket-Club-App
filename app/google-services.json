@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "677563175529",
+    "firebase_url": "https://cricket-club-iitg-aa3e3.firebaseio.com",
+    "project_id": "cricket-club-iitg-aa3e3",
+    "storage_bucket": "cricket-club-iitg-aa3e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677563175529:android:811399b3608d1be80448f8",
+        "android_client_info": {
+          "package_name": "com.example.cricketclubapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677563175529-76ml4vnvis81n9hglefbmgabnk77lh0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5FmL1lj69U4lPums6fDa_JoqQwckF2q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677563175529-76ml4vnvis81n9hglefbmgabnk77lh0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

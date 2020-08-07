@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Cricket Club App</string>
+    <string-array name="Hostels">
+        <item>Brahmaputra</item>
+        <item>Lohit</item>
+        <item>Barak</item>
+        <item>Umiam</item>
+        <item>Kameng</item>
+        <item>Siang</item>
+        <item>Manas</item>
+        <item>Kapili</item>
+        <item>Dihing</item>
+        <item>Dibang</item>
+        <item>Disang</item>
+        <item>MSH</item>
+    </string-array>
+    <string-array name="Programme">
+        <item>B.Tech</item>
+        <item>M.Tech</item>
+        <item>PHD</item>
+    </string-array>
+    <string-array name="Speciality">
+        <item>Batsman</item>
+        <item>Bowler</item>
+        <item>Batting All-Rounder</item>
+        <item>Bowling All-Rounder</item>
+    </string-array>
+</resources>
