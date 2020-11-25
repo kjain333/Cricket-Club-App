@@ -14,12 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -30,8 +36,7 @@ public class SignupActivity extends AppCompatActivity {
     Spinner hostelSpinner, progSpinner, specialitySpinner;
     String userHostel, userProg, userSpeciality;
     private FirebaseAuth mAuth;
-    FirebaseDatabase myData = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = myData.getReference();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +99,40 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            myRef.child("users").child(task.getResult().getUser().getUid()).child("email").setValue(emailEditText.getText().toString());
+                            /*myRef.child("users").child(task.getResult().getUser().getUid()).child("email").setValue(emailEditText.getText().toString());
                             myRef.child("users").child(task.getResult().getUser().getUid()).child("username").setValue(usernameEditText.getText().toString());
                             myRef.child("users").child(task.getResult().getUser().getUid()).child("hostel").setValue(userHostel);
                             myRef.child("users").child(task.getResult().getUser().getUid()).child("programme").setValue(userProg);
                             myRef.child("users").child(task.getResult().getUser().getUid()).child("speciality").setValue(userSpeciality);
-                            myRef.child("users").child(task.getResult().getUser().getUid()).child("points").setValue(0);
+                            myRef.child("users").child(task.getResult().getUser().getUid()).child("points").setValue(0);*/
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("email",emailEditText.getText().toString());
+                            user.put("username",usernameEditText.getText().toString());
+                            user.put("hostel",userHostel);
+                            user.put("programme",userProg);
+                            user.put("speciality",userSpeciality);
+                            user.put("points",0);
+                            firebaseFirestore.collection("users").document(task.getResult().getUser().getUid()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    login();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
 
-                            login();
+                                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
 
                         } else {
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                        Log.d("dynamic",e.toString()+"hello");
+                                }
+                            });
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
