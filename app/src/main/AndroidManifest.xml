@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PointsTable"></activity>
+        <activity android:name=".Attendance"></activity>
+        <activity android:name=".PointsTable" />
         <activity android:name=".FitnessDrillActivity" />
         <activity android:name=".DrillsActivity" />
         <activity android:name=".UserProfileActivity" />
