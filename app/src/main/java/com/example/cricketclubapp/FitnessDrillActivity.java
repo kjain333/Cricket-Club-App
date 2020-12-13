@@ -53,7 +53,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
         second = (Spinner) findViewById(R.id.userSpinner2);
         third = (Spinner)findViewById(R.id.userSpinner3);
 
-        firstAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, allUsers);
+        firstAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, allUsers);
         first.setAdapter(firstAdapter);
         second.setAdapter(firstAdapter);
         third.setAdapter(firstAdapter);
@@ -332,6 +332,6 @@ public class FitnessDrillActivity extends AppCompatActivity {
             }
         });
           Toast.makeText(getApplicationContext(), winner+secondRunnerUp+runnerUp+currPoints1.toString() + " " + currPoints2.toString() + " " + currPoints3.toString(), Toast.LENGTH_SHORT).show();
-
+        this.finish();
     }
 }
