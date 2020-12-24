@@ -38,7 +38,6 @@ public class Attendance extends AppCompatActivity {
     List<String> users = new ArrayList<>();
     List<String> id = new ArrayList<>();
     ArrayAdapter<String> adapter;
-    static int presentDays = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,24 +88,3 @@ public class Attendance extends AppCompatActivity {
     }
 
 }
-/*
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseFirestore.getInstance().collection("attendance").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments()){
-                    List data = (List) documentSnapshot.get("present");
-                    if(data.contains(auth.getCurrentUser().getUid()))
-                    {
-                        presentDays=presentDays+1;
-                    }
-                }
-                //update present days here
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                //Error show a toast
-            }
-        });
- */
