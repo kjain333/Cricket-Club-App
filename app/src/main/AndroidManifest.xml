@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DateAttendance"></activity>
+        <activity android:name=".FieldingSelfPractice"></activity>
+        <activity android:name=".BattingSelfPractice" />
+        <activity android:name=".DateAttendance" />
         <activity android:name=".PersonalAttendance" />
         <activity android:name=".Attendance" />
         <activity android:name=".PointsTable" />
