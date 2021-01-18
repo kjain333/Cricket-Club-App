@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AttendanceHome"
+    android:background="#EFE7E7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:text="Attendance"
+            android:textFontWeight="500"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="32sp"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:fontFamily="sans-serif-condensed-medium"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/attendance_card"
+                android:layout_margin="20dp"
+                android:onClick="take">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Take Attendance"
+                    android:textFontWeight="360"
+                    android:textSize="24sp"
+                    android:padding="36dp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:src="@drawable/attendance"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/attendance_card"
+                android:layout_margin="20dp"
+                android:onClick="getDatewise">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Datewise Record"
+                    android:textFontWeight="360"
+                    android:textSize="24sp"
+                    android:padding="36dp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:src="@drawable/shift"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/attendance_card"
+                android:layout_margin="20dp"
+                android:onClick="getPersonal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Individual Record"
+                    android:textFontWeight="360"
+                    android:textSize="24sp"
+                    android:padding="36dp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:src="@drawable/profile"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

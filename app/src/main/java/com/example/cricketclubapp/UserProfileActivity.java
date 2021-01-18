@@ -3,6 +3,8 @@ package com.example.cricketclubapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,10 +41,19 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     public void logoutUser(View view){
-        mAuth.signOut();
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        finish();
+        new AlertDialog.Builder(this)
+                .setTitle("CONFIRM")
+                .setMessage("Are you sure that you want to log out?")
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mAuth.signOut();
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton("Cancel", null)
+                .show();
     }
 
 }

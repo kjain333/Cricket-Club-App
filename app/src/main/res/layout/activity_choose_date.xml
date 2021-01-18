@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/myDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginTop="48dp"
+        android:text="Choose a date to continue"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="48dp"
+        android:background="@drawable/calendar_background"
+        android:layout_marginLeft="58dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="310dp">
+
+        </CalendarView>
+    </LinearLayout>
+
+
+</LinearLayout>

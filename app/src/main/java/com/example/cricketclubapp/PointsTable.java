@@ -1,8 +1,13 @@
 package com.example.cricketclubapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -17,29 +22,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PointsTable extends AppCompatActivity {
-    ListView names;
+    ListView rankings;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     CollectionReference collectionReference = firebaseFirestore.collection("users");
-    List<String> users = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayList<Member> users = new ArrayList<Member>();
+
+    CustomArrayAdapter adapter;
+//    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points_table);
-        names = (ListView) findViewById(R.id.pointsTable);
-        adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, users);
+        rankings = (ListView) findViewById(R.id.pointsTable);
+        adapter = new CustomArrayAdapter(getApplicationContext(), R.layout.adapter_view_layout, users);
         collectionReference.orderBy("points", Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
                 {
                     String username = documentSnapshot.get("username").toString();
-                    users.add(username);
+                    String points = documentSnapshot.get("points").toString();
+                    Member newMember = new Member(username, points);
+                    users.add(newMember);
                 }
 
                 adapter.notifyDataSetChanged();
             }
         });
-        names.setAdapter(adapter);
+        rankings.setAdapter(adapter);
+        rankings.animate().alpha(1).setDuration(1500);
     }
 }

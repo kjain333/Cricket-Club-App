@@ -26,14 +26,15 @@ import java.util.Set;
 public class PersonalAttendance extends AppCompatActivity {
     ListView names;
     Map<String, Integer> map = new HashMap<>();
-    List<String> attendance = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayList<String> attendance = new ArrayList<String>();
+    ArrayAdapter<String> myAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_attendance);
         names = (ListView) findViewById(R.id.personalAttendance);
-        adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, attendance);
+        myAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.list_view_layout, R.id.listContent, attendance);
         FirebaseFirestore.getInstance().collection("attendance").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -61,8 +62,8 @@ public class PersonalAttendance extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             attendance.add(documentSnapshot.get("username").toString()+": "+entry.getValue().toString());
-                            adapter.notifyDataSetChanged();
-                            names.setAdapter(adapter);
+                            myAdapter.notifyDataSetChanged();
+                            names.setAdapter(myAdapter);
                         }
                     });
                 }
@@ -76,3 +77,6 @@ public class PersonalAttendance extends AppCompatActivity {
 
     }
 }
+
+
+

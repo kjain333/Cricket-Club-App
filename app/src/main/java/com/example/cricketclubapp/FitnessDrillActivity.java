@@ -53,7 +53,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
         second = (Spinner) findViewById(R.id.userSpinner2);
         third = (Spinner)findViewById(R.id.userSpinner3);
 
-        firstAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, allUsers);
+        firstAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, allUsers);
         first.setAdapter(firstAdapter);
         second.setAdapter(firstAdapter);
         third.setAdapter(firstAdapter);

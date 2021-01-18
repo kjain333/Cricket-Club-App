@@ -44,7 +44,7 @@ public class Attendance extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
         names = (ListView) findViewById(R.id.attendance);
         names.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-        adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, users);
+        adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.checked_list, users);
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

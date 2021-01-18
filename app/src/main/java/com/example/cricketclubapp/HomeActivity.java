@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.common.io.LineReader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView profileImageView;
     TextView dashboardView;
     String name,hostel,speciality,programme;
-    LinearLayout drillsLayout;
+    LinearLayout drillsLayout, rankingsLayout, attendanceLayout;
 
 
     @Override
@@ -49,6 +50,8 @@ public class HomeActivity extends AppCompatActivity {
         profileImageView = (ImageView) findViewById(R.id.profileImageView);
         dashboardView = (TextView) findViewById(R.id.dashboardView);
         drillsLayout = (LinearLayout) findViewById(R.id.drillsLayout);
+        rankingsLayout = (LinearLayout) findViewById(R.id.rankingsLayout);
+        attendanceLayout = (LinearLayout) findViewById(R.id.attendanceLayout);
 
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
@@ -101,7 +104,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        rankingsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PointsTable.class);
+                startActivity(intent);
+            }
+        });
 
+        attendanceLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AttendanceHome.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

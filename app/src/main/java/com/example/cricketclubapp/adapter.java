@@ -13,6 +13,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
 
+import kotlin.jvm.internal.Intrinsics;
+
 public class adapter extends PagerAdapter {
 
     private List<Model> drillModels;
@@ -50,8 +52,21 @@ public class adapter extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, FitnessDrillActivity.class);
-                context.startActivity(intent);
+                Intent fitnessIntent = new Intent(context, FitnessDrillActivity.class);
+                Intent battingIntent = new Intent(context, BattingSelfPractice.class);
+                Intent fieldingIntent = new Intent(context, FieldingSelfPractice.class);
+
+                if(position == 0){
+                    context.startActivity(battingIntent);
+                }else if(position == 1){
+                    context.startActivity(battingIntent);
+                }else if(position == 2){
+                    context.startActivity(fieldingIntent);
+                }
+                else if(position == 3){
+                    context.startActivity(fitnessIntent);
+                }
+
             }
         });
 

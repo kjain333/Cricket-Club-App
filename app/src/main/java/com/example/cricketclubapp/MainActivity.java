@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView splashTextView = (TextView) findViewById(R.id.splashTextView);
-        splashTextView.animate().alpha(1).setDuration(1200).setStartDelay(1500);
+        splashTextView.animate().alpha(1).setDuration(500).setStartDelay(500);
         Handler handler = new Handler();
         Runnable run = new Runnable() {
             @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        handler.postDelayed(run, 4000);
+        handler.postDelayed(run, 1200);
 
     }
 }

@@ -203,6 +203,7 @@
                 android:background="@drawable/cardview">
 
                 <LinearLayout
+                    android:id="@+id/attendanceLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -238,6 +239,7 @@
                 android:background="@drawable/cardview">
 
                 <LinearLayout
+                    android:id="@+id/rankingsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
