@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChooseDate"></activity>
+        <activity android:name=".FullNetStats" />
+        <activity android:name=".FullNet" />
+        <activity android:name=".ChooseDate" />
         <activity android:name=".AttendanceHome" />
         <activity android:name=".BattingDrills" />
         <activity android:name=".BattingSelfPractice" />
