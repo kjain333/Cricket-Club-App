@@ -31,7 +31,7 @@
                 android:text="Dashboard" />
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileImageView"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -60,6 +60,7 @@
                 android:background="@drawable/cardview">
 
                 <LinearLayout
+                    android:id="@+id/nets"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -168,6 +169,7 @@
                 android:background="@drawable/cardview">
 
                 <LinearLayout
+                    android:id="@+id/statsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"

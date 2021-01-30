@@ -22,6 +22,7 @@ public class AttendanceHome extends AppCompatActivity {
 
     public void getDatewise(View view){
         Intent intent = new Intent(getApplicationContext(), ChooseDate.class);
+        intent.putExtra("type", 1);
         startActivity(intent);
 
     }

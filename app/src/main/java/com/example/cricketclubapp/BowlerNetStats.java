@@ -3,13 +3,18 @@ package com.example.cricketclubapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -29,23 +34,41 @@ import java.util.Date;
 import java.util.List;
 
 public class BowlerNetStats extends AppCompatActivity {
-    EditText date;
+
     List<String> names = new ArrayList<>();
     List<String> id = new ArrayList<>();
     Spinner spinner;
     ArrayAdapter players;
     String selectedName,selectedId;
     Button getStats;
+    androidx.gridlayout.widget.GridLayout gridLayout;
     int[][] twoDimensionalArray= new int[6][3];
-    TableLayout tableLayout;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bowler_net_stats);
-        date = findViewById(R.id.bowlerstatsDate);
+        if(Build.VERSION.SDK_INT >= 21){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.statusBarWhite));
+        }
+        Intent intent = getIntent();
+        final String getDate = intent.getStringExtra("date");
         spinner = findViewById(R.id.bowlerspinner6);
         getStats = findViewById(R.id.bowlerbutton6);
-        tableLayout = findViewById(R.id.bowlertable_main);
+        gridLayout = findViewById(R.id.bowlingGrid);
+        tv1 = findViewById(R.id.tview1); tv2 = findViewById(R.id.tview2); tv3 = findViewById(R.id.tview3);
+        tv4 = findViewById(R.id.tview4); tv5 = findViewById(R.id.tview5); tv6 = findViewById(R.id.tview6);
+        tv7 = findViewById(R.id.tview7); tv8 = findViewById(R.id.tview8); tv9 = findViewById(R.id.tview9);
+        tv10 = findViewById(R.id.tview10); tv11 = findViewById(R.id.tview11); tv12 = findViewById(R.id.tview12);
+        tv13 = findViewById(R.id.tview13); tv14 = findViewById(R.id.tview14); tv15 = findViewById(R.id.tview15);
+        tv16 = findViewById(R.id.tview16); tv17 = findViewById(R.id.tview17); tv18 = findViewById(R.id.tview18);
+        final TextView[][] tvArray = {{tv1,tv2,tv3}, {tv4,tv5,tv6}, {tv7,tv8,tv9}, {tv10,tv11,tv12}, {tv13,tv14,tv15}, {tv16,tv17,tv18}};
+
+
         players = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,names);
         FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -82,7 +105,6 @@ public class BowlerNetStats extends AppCompatActivity {
         getStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tableLayout.removeAllViews();
                 for(int i=0;i<6;i++)
                 {
                     for(int j=0;j<3;j++)
@@ -93,8 +115,9 @@ public class BowlerNetStats extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
                 Date chosenDate = null;
                 try {
-                    chosenDate = simpleDateFormat.parse(date.getText().toString());
-                    FirebaseFirestore.getInstance().collection("stats").document(date.getText().toString()).collection(selectedId).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    chosenDate = simpleDateFormat.parse(String.valueOf(getDate));
+                    Toast.makeText(getApplicationContext(), getDate, Toast.LENGTH_SHORT).show();
+                    FirebaseFirestore.getInstance().collection("stats").document(getDate).collection(selectedId).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
@@ -132,18 +155,14 @@ public class BowlerNetStats extends AppCompatActivity {
                             }
                             for(int i=0;i<6;i++)
                             {
-                                TableRow row = new TableRow(getBaseContext());
+
                                 for(int j=0;j<3;j++)
                                 {
-                                    TextView tv = new TextView(getBaseContext());
-                                    tv.setMinHeight(120);
-                                    tv.setMinWidth(240);
-                                    tv.setGravity(Gravity.CENTER);
-                                    tv.setText(String.valueOf(twoDimensionalArray[i][j]));
-                                    row.addView(tv);
+                                    tvArray[i][j].setText(String.valueOf(twoDimensionalArray[i][j]));
                                 }
-                                tableLayout.addView(row);
                             }
+
+
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {

@@ -11,7 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CustomArrayAdapter extends ArrayAdapter<Member> {
 
@@ -29,6 +33,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Member> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String name = getItem(position).getName();
         String points = getItem(position).getPoints();
+
         Integer pos = position+1;
 
 
@@ -39,9 +44,11 @@ public class CustomArrayAdapter extends ArrayAdapter<Member> {
         TextView nameView = (TextView) convertView.findViewById(R.id.pointsTextView2);
         TextView pointView = (TextView) convertView.findViewById(R.id.pointsTextView3);
 
+
         numView.setText(pos.toString());
         nameView.setText(name);
         pointView.setText(points);
+
 
         return convertView;
     }

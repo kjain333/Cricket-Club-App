@@ -29,32 +29,36 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    ImageView profileImageView;
+    CircleImageView profileImageView;
     TextView dashboardView;
     String name,hostel,speciality,programme;
-    LinearLayout drillsLayout, rankingsLayout, attendanceLayout;
-
+    LinearLayout drillsLayout, rankingsLayout, attendanceLayout, netsLayout, statsLayout;
+    private DatabaseReference databaseReference;
+    private DocumentReference documentReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mAuth = FirebaseAuth.getInstance();
-        profileImageView = (ImageView) findViewById(R.id.profileImageView);
+        profileImageView = findViewById(R.id.profileImageView);
         dashboardView = (TextView) findViewById(R.id.dashboardView);
         drillsLayout = (LinearLayout) findViewById(R.id.drillsLayout);
         rankingsLayout = (LinearLayout) findViewById(R.id.rankingsLayout);
         attendanceLayout = (LinearLayout) findViewById(R.id.attendanceLayout);
-
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
+        netsLayout = (LinearLayout) findViewById(R.id.nets);
+        statsLayout = (LinearLayout) findViewById(R.id.statsLayout);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
        /* databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 */
-        DocumentReference documentReference = firebaseFirestore.collection("users").document(mAuth.getCurrentUser().getUid());
+        documentReference = firebaseFirestore.collection("users").document(mAuth.getCurrentUser().getUid());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -83,6 +87,9 @@ public class HomeActivity extends AppCompatActivity {
                 programme = value.get("programme").toString();
             }
         });
+
+        getUserInfo();
+
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +127,40 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        netsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FullNet.class);
+                startActivity(intent);
+            }
+        });
+
+        statsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Stats.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void getUserInfo() {
+        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
+                    if(snapshot.hasChild("image")){
+                        String image = snapshot.child("image").getValue().toString();
+                        Picasso.get().load(image).into(profileImageView);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
 

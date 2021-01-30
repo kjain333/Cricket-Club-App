@@ -14,14 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
-        android:layout_marginRight="110dp"
         android:layout_marginTop="48dp"
-        android:text="Choose a date to continue"
-        android:textAlignment="center"
+        android:layout_marginRight="110dp"
         android:gravity="center"
+        android:text="Choose a date to continue"
+        android:textFontWeight="900"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="#fff"
-        android:textSize="25sp"
-        />
+        android:textSize="22sp" />
 
     <LinearLayout
         android:layout_marginTop="48dp"

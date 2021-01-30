@@ -4,31 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BowlerNetStats">
-    <EditText
-        android:id="@+id/bowlerstatsDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+    tools:context=".BowlerNetStats"
+    >
 
     <Spinner
         android:id="@+id/bowlerspinner6"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:background="#D9E6E8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.077" />
+
     <Button
         android:id="@+id/bowlerbutton6"
         android:layout_width="139dp"
@@ -37,23 +27,340 @@
         android:text="GET STATS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:background="@drawable/button1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         app:layout_constraintVertical_bias="0.946" />
 
-    <TableLayout
-        android:id="@+id/bowlertable_main"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/bowlingGrid"
+        android:layout_width="360dp"
+        android:layout_height="510dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/statusBarWhite"
+        app:rowCount="6"
+        app:columnCount="4"
+        app:layout_constraintBottom_toTopOf="@+id/bowlerbutton6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bowlerspinner6"
-        app:layout_constraintVertical_bias="0.272">
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:text="YORKER"
+            android:gravity="center"
+            android:background="#2E6CE6"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/tview1"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#E4DE62"
+            />
+
+        <TextView
+            android:id="@+id/tview2"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#DDC448"
+            />
+
+        <TextView
+            android:id="@+id/tview3"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:text="0"
+            android:background="#EFE418"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="HALF VOLLEY"
+            android:textSize="12sp"
+            android:background="#2E6CE6"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/tview4"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#EA6C77"
+            />
+
+        <TextView
+            android:id="@+id/tview5"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#EC5472"
+            />
+
+        <TextView
+            android:id="@+id/tview6"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#DC3557"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="DRIVE"
+            android:background="#2E6CE6"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/tview7"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#FF7E56"
+            />
+
+        <TextView
+            android:id="@+id/tview8"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#FD6D3F"
+            />
+
+        <TextView
+            android:id="@+id/tview9"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#FF5722"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="GOOD"
+            android:background="#2E6CE6"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/tview10"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#C0FF78"
+            />
+
+        <TextView
+            android:id="@+id/tview11"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#A2FB3B"
+            />
+
+        <TextView
+            android:id="@+id/tview12"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:text="0"
+            android:background="#8DFB0D"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="Sh. OF GOOD"
+            android:background="#2E6CE6"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/tview13"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#8AE363"
+            />
+
+        <TextView
+            android:id="@+id/tview14"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#49D64F"
+            />
+
+        <TextView
+            android:id="@+id/tview15"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:text="0"
+            android:background="#33BD39"
+            />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="SHORT"
+            android:textColor="#FFFFFF"
+            android:background="#2E6CE6"
+            />
+
+        <TextView
+            android:id="@+id/tview16"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#D789E4"
+            />
+
+        <TextView
+            android:id="@+id/tview17"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#CE4FE4"
+            />
+
+        <TextView
+            android:id="@+id/tview18"
+            android:layout_width="90dp"
+            android:layout_height="85dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="18sp"
+            android:textFontWeight="900"
+            android:textColor="#000000"
+            android:background="#A70CC1"
+            />
 
 
-    </TableLayout>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="137dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="68dp"
+        android:text="BOWLER:"
+        android:textFontWeight="800"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textColor="#054A80"
+        app:layout_constraintBottom_toTopOf="@+id/bowlingGrid"
+        app:layout_constraintEnd_toStartOf="@+id/bowlerspinner6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

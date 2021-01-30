@@ -15,21 +15,41 @@ public class ChooseDate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_date);
-
+        final Intent intent = getIntent();
+        final Integer type = intent.getIntExtra("type", 0);
         calendarView = findViewById(R.id.calendarView);
-        helper();
-    }
 
-    public void helper(){
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-                String date = i2 + "/" + (i1+1) + "/" + i;
-                Intent intent = new Intent(getApplicationContext(), DateAttendance.class);
-                intent.putExtra("date", date);
-                startActivity(intent);
+
+                if(type == 1){
+                    Intent intent = new Intent(getApplicationContext(), DateAttendance.class);
+                    String date = i2 + "/" + (i1+1) + "/" + i;
+                    intent.putExtra("date", date);
+                    startActivity(intent);
+                }else if (type == 2) {
+                    Intent intent = new Intent(getApplicationContext(), FullNetStats.class);
+                    String date = i + "" + (i1+1) + "" +  i2;
+                    if(i1 < 9){
+                        date = i + "0" + (i1+1) + "" +  i2;
+                    }
+                    intent.putExtra("date", date);
+                    startActivity(intent);
+                }else if(type == 3){
+                    Intent intent = new Intent(getApplicationContext(), BowlerNetStats.class);
+                    String date = i + "" + (i1+1) + "" +  i2;
+                    if(i1 < 9){
+                        date =  i + "0" + (i1+1) + "" +  i2;
+                    }
+                    intent.putExtra("date", date);
+                    startActivity(intent);
+                }
 
             }
         });
+
     }
+
+
 }

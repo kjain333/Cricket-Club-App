@@ -7,6 +7,7 @@ public class Member {
     public Member(String name, String points){
         this.name = name;
         this.points = points;
+
     }
 
     public String getName() {
@@ -24,4 +25,5 @@ public class Member {
     public void setPoints(String points) {
         this.points = points;
     }
+
 }
