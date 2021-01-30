@@ -42,7 +42,7 @@ public class PointsTable extends AppCompatActivity {
                 {
                     String username = documentSnapshot.get("username").toString();
                     String points = documentSnapshot.get("points").toString();
-
+                    String image = documentSnapshot.get("image").toString();
                     Member newMember = new Member(username, points);
                     users.add(newMember);
                 }

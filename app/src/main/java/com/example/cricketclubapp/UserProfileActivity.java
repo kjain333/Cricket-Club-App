@@ -1,6 +1,7 @@
 package com.example.cricketclubapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +20,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.ktx.Firebase;
 import com.squareup.picasso.Picasso;
 
@@ -59,20 +65,16 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void getUserInfo() {
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseFirestore.getInstance().collection("users").document(mAuth.getCurrentUser().getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
-                    if(snapshot.hasChild("image")){
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profilepic);
-                    }
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(error!=null)
+                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+                if(value.getData().containsKey("image"))
+                {
+                    String image = value.get("image").toString();
+                    Picasso.get().load(image).into(profilepic);
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

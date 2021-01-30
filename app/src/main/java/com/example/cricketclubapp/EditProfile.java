@@ -26,7 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.ktx.Firebase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -73,8 +76,9 @@ public class EditProfile extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-                startActivity(intent);
+                finish();
+               /* Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                startActivity(intent);*/
             }
         });
 
@@ -97,20 +101,16 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private void getUserInfo() {
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseFirestore.getInstance().collection("users").document(mAuth.getCurrentUser().getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
-                    if(snapshot.hasChild("image")){
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(imageView);
-                    }
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(error!=null)
+                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+                if(value.getData().containsKey("image"))
+                {
+                    String image = value.get("image").toString();
+                    Picasso.get().load(image).into(imageView);
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -155,7 +155,8 @@ public class EditProfile extends AppCompatActivity {
                         HashMap<String, Object> myMap = new HashMap<>();
                         myMap.put("image", myUri);
 
-                        databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(myMap);
+                        //databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(myMap);
+                        FirebaseFirestore.getInstance().collection("users").document(mAuth.getCurrentUser().getUid()).update(myMap);
                         Toast.makeText(getApplicationContext(), "Image Uploaded.", Toast.LENGTH_SHORT).show();
                         pd.dismiss();
                     }

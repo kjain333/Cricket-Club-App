@@ -85,11 +85,13 @@ public class HomeActivity extends AppCompatActivity {
                 hostel = value.get("hostel").toString();
                 speciality = value.get("speciality").toString();
                 programme = value.get("programme").toString();
+                if(value.getData().containsKey("image"))
+                {
+                    String image = value.get("image").toString();
+                    Picasso.get().load(image).into(profileImageView);
+                }
             }
         });
-
-        getUserInfo();
-
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,23 +146,23 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void getUserInfo() {
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
-                    if(snapshot.hasChild("image")){
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profileImageView);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
+//    private void getUserInfo() {
+//        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
+//                    if(snapshot.hasChild("image")){
+//                        String image = snapshot.child("image").getValue().toString();
+//                        Picasso.get().load(image).into(profileImageView);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }
 
