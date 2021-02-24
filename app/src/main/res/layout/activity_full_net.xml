@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FullNet">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -22,33 +13,11 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="0.054" />
 
-    <Spinner
-        android:id="@+id/spinner4"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
 
     <Spinner
         android:id="@+id/spinner5"
@@ -56,10 +25,10 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <Button
         android:id="@+id/button4"
@@ -71,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner5"
-        app:layout_constraintVertical_bias="0.145" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <Button
         android:id="@+id/button5"
@@ -80,9 +49,275 @@
         android:text="Finish Session"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.785" />
+
+    <EditText
+        android:id="@+id/runsScored"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Runs Scored"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/bowlingGrid"
+        android:layout_width="320dp"
+        android:layout_height="310dp"
+        android:background="@color/statusBarWhite"
+        app:columnCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:rowCount="6">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="YORKER"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/target1"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#E4DE62"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target2"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#DDC448"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target3"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#EFE418"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="HALF VOLLEY"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/target4"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#EA6C77"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target5"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#EC5472"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target6"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#DC3557"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="DRIVE"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/target7"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#FF7E56"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target8"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#FD6D3F"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target9"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#FF5722"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="GOOD"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/target10"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#C0FF78"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target11"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#A2FB3B"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target12"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#8DFB0D"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="Sh. OF GOOD"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/target13"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#8AE363"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target14"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#49D64F"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target15"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#33BD39"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#2E6CE6"
+            android:gravity="center"
+            android:text="SHORT"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/target16"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#D789E4"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target17"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#CE4FE4"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/target18"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="#A70CC1"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

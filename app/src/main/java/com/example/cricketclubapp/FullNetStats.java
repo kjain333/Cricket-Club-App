@@ -38,6 +38,7 @@ public class FullNetStats extends AppCompatActivity {
     ArrayAdapter players;
     String selectedName,selectedId;
     Button getStats;
+    TextView challenge;
     TableLayout allStats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class FullNetStats extends AppCompatActivity {
         spinner = findViewById(R.id.spinner6);
         getStats = findViewById(R.id.button6);
         allStats = findViewById(R.id.table_main);
+        challenge = findViewById(R.id.challenge);
         players = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,names);
         FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -77,6 +79,7 @@ public class FullNetStats extends AppCompatActivity {
         getStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                challenge.setText("");
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
                 Date chosenDate = null;
                 try {
@@ -123,13 +126,21 @@ public class FullNetStats extends AppCompatActivity {
                             tv4.setPadding(10,10,10,10);
                             tv4.setGravity(Gravity.CENTER);
                             row.addView(tv4);
+                            TextView tv5 = new TextView(getBaseContext());
+                            tv5.setText("Runs");
+                            tv5.setTextColor(getResources().getColor(R.color.statusBarWhite));
+                            tv5.setPadding(10,10,10,10);
+                            tv5.setGravity(Gravity.CENTER);
+                            row.addView(tv5);
                             allStats.addView(row);
+                            int j=0;
                            for(int i=0;i<documents.size();i++)
                            {
                                if(documents.get(i).get("batsman").toString().equals(selectedName)){
                                    TableRow _row = new TableRow(getBaseContext());
                                    TextView _tv = new TextView(getBaseContext());
-                                   _tv.setText(String.valueOf(i+1));
+                                   _tv.setText(String.valueOf(j+1));
+                                   j++;
                                    _tv.setTextColor(getResources().getColor(R.color.statusBarWhite));
                                    _tv.setPadding(10,10,10,10);
                                    _tv.setGravity(Gravity.CENTER);
@@ -164,9 +175,37 @@ public class FullNetStats extends AppCompatActivity {
                                    _tv4.setPadding(10,10,10,10);
                                    _tv4.setGravity(Gravity.CENTER);
                                    _row.addView(_tv4);
+                                   TextView _tv5 = new TextView(getBaseContext());
+                                   _tv5.setText(documents.get(i).contains("runs")?documents.get(i).get("runs").toString():"N/A");
+                                   _tv5.setTextColor(getResources().getColor(R.color.statusBarWhite));
+                                   _tv5.setPadding(10,10,10,10);
+                                   _tv5.setGravity(Gravity.CENTER);
+                                   _row.addView(_tv5);
                                    allStats.addView(_row);
                                }
                            }
+                            FirebaseFirestore.getInstance().collection("challenges").document(getDate).collection(selectedId).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                   List<DocumentSnapshot> data = queryDocumentSnapshots.getDocuments();
+                                   if(data.size()>0)
+                                   {
+                                       String mode = data.get(0).get("mode").toString();
+                                       if(mode.equals("C"))
+                                       {
+                                           String achieved = data.get(0).get("achieved").toString();
+                                           challenge.setText("Mode: C\nAchieved: "+achieved);
+                                       }
+                                       else
+                                           challenge.setText("Mode: "+mode);
+                                   }
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getBaseContext(),"There was some error! Please try later",Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
