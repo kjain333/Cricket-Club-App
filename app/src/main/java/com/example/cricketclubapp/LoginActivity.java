@@ -68,4 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
     }
+
+    public void goToAuctions(View view){
+        Intent intent = new Intent(getApplicationContext(), Auctions.class);
+        startActivity(intent);
+    }
 }
