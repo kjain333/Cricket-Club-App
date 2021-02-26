@@ -59,6 +59,7 @@ public class EditProfile extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private StorageTask uploadTask;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,23 +171,3 @@ public class EditProfile extends AppCompatActivity {
 }
 
 
-//uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//@Override
-//public void onSuccess(UploadTask.TaskSnapshot taskSnapshot){
-//        pd.dismiss();
-//        Toast.makeText(getApplicationContext(), "Image Uploaded.", Toast.LENGTH_SHORT).show();
-//        }
-//        })
-//        .addOnFailureListener(new OnFailureListener() {
-//@Override
-//public void onFailure(@NonNull Exception e) {
-//        pd.dismiss();
-//        Toast.makeText(getApplicationContext(), "Failed to upload.", Toast.LENGTH_SHORT).show();
-//        }
-//        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//@Override
-//public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-//        double progressPercent = (100.00 * snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
-//        pd.setMessage((int)progressPercent + "% of your image has been uploaded.");
-//        }
-//        });

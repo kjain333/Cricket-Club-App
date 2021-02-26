@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
+    android:background="@color/colorPrimaryDark"
     tools:context=".PointsTable">
 
     <ListView
         android:id="@+id/pointsTable"
-        android:layout_width="378dp"
-        android:layout_height="708dp"
+        android:layout_width="393dp"
+        android:layout_height="713dp"
         android:layout_marginTop="120dp"
         android:alpha="0"
         android:background="@drawable/listcorner"

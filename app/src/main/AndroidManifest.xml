@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AuctionUserProfile"></activity>
+        <activity android:name=".Auctions"></activity>
+        <!-- <activity -->
+        <!-- android:name=".Auctions" -->
+        <!-- android:label="@string/title_activity_auctions" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"></activity> -->
+        <activity android:name=".AuctionUserProfile" />
         <activity android:name=".AuctionAddPlayer" />
         <activity android:name=".AuctionPlayers" />
         <activity android:name=".AuctionTeams" />

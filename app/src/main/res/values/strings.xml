@@ -25,4 +25,7 @@
         <item>Batting All-Rounder</item>
         <item>Bowling All-Rounder</item>
     </string-array>
+    <string name="title_activity_auctions">Auctions</string>
+    <string name="tab_text_1">Completed</string>
+    <string name="tab_text_2">Teams</string>
 </resources>

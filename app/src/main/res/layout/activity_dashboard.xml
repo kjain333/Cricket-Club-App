@@ -48,78 +48,77 @@
             />
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="385dp"
-        android:layout_height="180dp"
-        android:orientation="horizontal"
-        android:background="@drawable/dashboard1"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp">
+     <LinearLayout
+         android:layout_width="385dp"
+         android:layout_height="180dp"
+         android:orientation="horizontal"
+         android:background="@drawable/dashboard1"
+         android:layout_gravity="center"
+         android:layout_marginTop="25dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_weight="40">
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:layout_gravity="center"
+             android:layout_weight="40">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ranking"
-                android:textSize="21dp"
-                android:textColor="@color/statusBarWhite"
-                android:paddingLeft="40dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:paddingTop="10dp"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Ranking"
+                 android:textSize="21dp"
+                 android:textColor="@color/statusBarWhite"
+                 android:paddingLeft="40dp"
+                 android:fontFamily="sans-serif-condensed-medium"
+                 android:paddingTop="10dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="28dp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@color/statusBarWhite"
-                android:paddingLeft="60dp"
-                android:paddingTop="2dp"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="-"
+                 android:textSize="28dp"
+                 android:textStyle="bold"
+                 android:fontFamily="sans-serif-black"
+                 android:textColor="@color/statusBarWhite"
+                 android:paddingLeft="60dp"
+                 android:paddingTop="2dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Attendance"
-                android:textSize="21dp"
-                android:textColor="@color/statusBarWhite"
-                android:paddingLeft="40dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:paddingTop="10dp"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Attendance"
+                 android:textSize="21dp"
+                 android:textColor="@color/statusBarWhite"
+                 android:paddingLeft="40dp"
+                 android:fontFamily="sans-serif-condensed-medium"
+                 android:paddingTop="10dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 days"
-                android:textSize="28dp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-condensed-light"
-                android:textColor="@color/statusBarWhite"
-                android:paddingLeft="50dp"
-                android:paddingTop="2dp"/>
-        </LinearLayout>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="0 days"
+                 android:textSize="28dp"
+                 android:textStyle="bold"
+                 android:fontFamily="sans-serif-condensed-light"
+                 android:textColor="@color/statusBarWhite"
+                 android:paddingLeft="50dp"
+                 android:paddingTop="2dp"/>
+         </LinearLayout>
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_weight="60"
-            android:src="@drawable/award"
-            android:layout_gravity="center"/>
+         <ImageView
+             android:layout_width="60dp"
+             android:layout_height="100dp"
+             android:layout_weight="60"
+             android:src="@drawable/award"
+             android:layout_gravity="center"/>
 
-    </LinearLayout>
+     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="12dp"
         android:paddingLeft="25dp"
         android:paddingTop="16dp"
         android:id="@+id/cardLayout">
@@ -244,7 +243,7 @@
             android:paddingBottom="10dp"
             android:layout_marginLeft="15dp"
             android:layout_width="60dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:src="@drawable/statistics"
             android:id="@+id/i1"/>
 
@@ -274,7 +273,7 @@
         <ImageView
             android:layout_marginLeft="15dp"
             android:layout_width="60dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:src="@drawable/medal"
             android:paddingBottom="15dp"
             android:id="@+id/i2"/>
@@ -305,7 +304,7 @@
         <ImageView
             android:layout_marginLeft="15dp"
             android:layout_width="60dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:src="@drawable/attendance"
             android:id="@+id/i3"
             android:paddingBottom="15dp"/>

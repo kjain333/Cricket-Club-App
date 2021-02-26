@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwordEditText;
     TextView switchTextView;
     private FirebaseAuth mAuth;
+    Button updateBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = (EditText) findViewById(R.id.loginEmailEditText);
         passwordEditText = (EditText) findViewById(R.id.loginPasswordEditText);
         switchTextView = (TextView) findViewById(R.id.switchTextView);
+        updateBtn = (Button) findViewById(R.id.updatePlayers);
         mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser() != null){
@@ -43,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent switchIntent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(switchIntent);
+            }
+        });
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AuctionAddPlayer.class);
+                startActivity(intent);
             }
         });
     }
@@ -70,7 +81,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void goToAuctions(View view){
-//        Intent intent = new Intent(getApplicationContext(), Auctions.class);
-//        startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), Auctions.class);
+        startActivity(intent);
     }
+
 }

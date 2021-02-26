@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/profile"
+                android:id="@+id/imagePlayer"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#FCFEFF"
+                android:background="#2083D3"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/playerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Player Name"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textColor="@color/statusBarWhite"
+                    android:background="#454749"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/playerHostel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Hostel"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_weight="50"/>
+
+                    <TextView
+                        android:id="@+id/playerProgramme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Programme"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_weight="50"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sellingStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Status"
+                android:textColor="@color/statusBarWhite"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:layout_weight="65"
+                android:background="#2083D3"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/sellingAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1000 INR"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:layout_weight="35"
+                android:background="#4CAF50"
+                android:textStyle="bold"
+                android:textColor="@color/statusBarWhite"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

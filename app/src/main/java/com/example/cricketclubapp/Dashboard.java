@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomeActivity extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     CircleImageView profileImageView;
@@ -34,7 +34,6 @@ public class HomeActivity extends AppCompatActivity {
     RelativeLayout attendanceLt, statsLt, rankingsLt;
     private DatabaseReference databaseReference;
     private DocumentReference documentReference;
-    TextView t2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         attendanceLt = findViewById(R.id.attendanceLt);
         netsLt = (CardView) findViewById(R.id.netsLt);
         statsLt = findViewById(R.id.statsLt);
-        t2 = (TextView) findViewById(R.id.t2);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -61,7 +59,6 @@ public class HomeActivity extends AppCompatActivity {
                 hostel = value.get("hostel").toString();
                 speciality = value.get("speciality").toString();
                 programme = value.get("programme").toString();
-                t2.setText(name);
                 if (value.getData().containsKey("image")) {
                     String image = value.get("image").toString();
                     Picasso.get().load(image).into(profileImageView);
@@ -108,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
         netsLt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FullNetStart.class);
+                Intent intent = new Intent(getApplicationContext(), FullNet.class);
                 startActivity(intent);
             }
         });

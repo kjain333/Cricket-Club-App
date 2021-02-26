@@ -33,7 +33,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Member> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String name = getItem(position).getName();
         String points = getItem(position).getPoints();
-
+        String image = getItem(position).getImage();
         Integer pos = position+1;
 
 
@@ -43,13 +43,16 @@ public class CustomArrayAdapter extends ArrayAdapter<Member> {
         TextView numView = (TextView) convertView.findViewById(R.id.pointsTextView1);
         TextView nameView = (TextView) convertView.findViewById(R.id.pointsTextView2);
         TextView pointView = (TextView) convertView.findViewById(R.id.pointsTextView3);
-
+        CircleImageView imageView = convertView.findViewById(R.id.ptImage);
 
         numView.setText(pos.toString());
         nameView.setText(name);
         pointView.setText(points);
-
-
+        if(image.equals("default")){
+            Picasso.get().load(R.drawable.profile).into(imageView);
+        }else{
+            Picasso.get().load(image).into(imageView);
+        }
         return convertView;
     }
 }

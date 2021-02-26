@@ -41,10 +41,12 @@ public class PointsTable extends AppCompatActivity {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
                 {
                     String username = documentSnapshot.get("username").toString();
-
                     String points = documentSnapshot.get("points").toString();
-                    String image = (documentSnapshot.contains("image"))?documentSnapshot.get("image").toString():"";
-                    Member newMember = new Member(username, points);
+                    String image = "default";
+                    if(documentSnapshot.get("image") != null){
+                          image = documentSnapshot.get("image").toString();
+                    }
+                    Member newMember = new Member(username, points, image);
                     users.add(newMember);
                 }
 
