@@ -56,7 +56,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return mData.size();
     }
-
+    public void updateAdapter(List<Player> mDataList) {
+        mData = mDataList;
+        notifyDataSetChanged();
+    }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvName, tvHostel, tvProgramme, tvStatus, tvAmount;
