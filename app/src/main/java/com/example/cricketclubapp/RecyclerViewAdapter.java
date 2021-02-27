@@ -47,7 +47,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.tvStatus.setText("SOLD TO " + mData.get(position).getTeam());
         }else{
             holder.tvStatus.setText("UNSOLD");
-            holder.tvStatus.setBackgroundColor(R.color.colorPrimary);
         }
 
     }

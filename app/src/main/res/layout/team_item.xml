@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Team Name"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="#343637"
+            android:textSize="16sp"
+            android:textColor="@color/statusBarWhite"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:orientation="vertical"
+                android:layout_weight="50">
+
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:text="Squad Size"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/squadSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="20"
+                        android:textColor="@color/statusBarWhite"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textAllCaps="true"
+                        android:background="#2083D3"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical" />
+
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:orientation="vertical"
+                        android:layout_weight="50">
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:text="Remaining Budget"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/remBudget"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="1000 INR"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:textAllCaps="true"
+                            android:background="#4CAF50"
+                            android:textStyle="bold"
+                            android:textColor="@color/statusBarWhite" />
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

@@ -68,20 +68,20 @@ public class PlayersFragment extends Fragment {
                         }
                     });
                 }
-                FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
-                        for(DocumentSnapshot documentSnapshot: snapshotList)
-                        {
-                            if(!playerSold.contains(documentSnapshot.getId()))
-                            {
-                                listPlayer.add(new Player(documentSnapshot.get("username").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),R.drawable.profile,false,0,""));
-                            }
-                            recyclerViewAdapter.updateAdapter(listPlayer);
-                        }
-                    }
-                });
+//                FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+//                        for(DocumentSnapshot documentSnapshot: snapshotList)
+//                        {
+//                            if(!playerSold.contains(documentSnapshot.getId()))
+//                            {
+//                                listPlayer.add(new Player(documentSnapshot.get("username").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),R.drawable.profile,false,0,""));
+//                            }
+//                            recyclerViewAdapter.updateAdapter(listPlayer);
+//                        }
+//                    }
+//                });
             }
         });
     }
