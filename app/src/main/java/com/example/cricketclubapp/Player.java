@@ -5,12 +5,12 @@ public class Player {
     private String Name;
     private String Hostel;
     private String Programme;
-    private int Photo;
+    private String Photo;
     private boolean Sold;
     private int Amount;
     private String Team;
 
-
+    private long time;
 
 
     public String getName() {
@@ -25,7 +25,7 @@ public class Player {
         return Programme;
     }
 
-    public int getPhoto() {
+    public String getPhoto() {
         return Photo;
     }
 
@@ -40,8 +40,11 @@ public class Player {
     public String getTeam() {
         return Team;
     }
+    public long getTime() {
+        return time;
+    }
 
-    public Player(String name, String hostel, String programme, int photo, boolean sold, int amount, String team) {
+    public Player(String name, String hostel, String programme, String photo, boolean sold, int amount, String team,long Time) {
         Name = name;
         Hostel = hostel;
         Programme = programme;
@@ -49,6 +52,7 @@ public class Player {
         Sold = sold;
         Amount = amount;
         Team = team;
+        time = Time;
     }
 
 

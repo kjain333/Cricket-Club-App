@@ -1,10 +1,14 @@
 package com.example.cricketclubapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,13 +51,19 @@ public class TeamsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listTeam = new ArrayList<>();
-        listTeam.add(new Team("Chennai Super Kings", 100000, 22));
-        listTeam.add(new Team("Punjab Kings", 200000, 21));
-        listTeam.add(new Team("Rajasthan Royals", 100000, 20));
-        listTeam.add(new Team("Kolkata Knight Riders", 300000, 25));
-        listTeam.add(new Team("Mumbai Indians", 100000, 22));
-        listTeam.add(new Team("Royal Chalengers Banglore", 150000, 24));
-
+        FirebaseFirestore.getInstance().collection("auctionTeams").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                final List<DocumentSnapshot> documentSnapshots = value.getDocuments();
+                listTeam = new ArrayList<>();
+                for(int i=0;i<documentSnapshots.size();i++)
+                {
+                    if(documentSnapshots.get(i).contains("budget"))
+                    listTeam.add(new Team(documentSnapshots.get(i).getId(),Integer.parseInt(documentSnapshots.get(i).get("budget").toString())-Integer.parseInt(documentSnapshots.get(i).get("totalMoney").toString()),Integer.parseInt(documentSnapshots.get(i).get("totalPlayers").toString())));
+                }
+                recyclerViewAdapter.updateAdapter(listTeam);
+            }
+        });
 
     }
 }

@@ -69,9 +69,11 @@ public class PlayersFragment extends Fragment {
                             Log.d("debug",documentSnapshot.get("hostel").toString());
                             pgBar.setVisibility(View.GONE);
                             playerSold.add(documentSnapshot.getId());
-                            listPlayer.add(new Player(documentSnapshots.get(finalI).get("playerName").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),R.drawable.profile,true,Integer.parseInt(documentSnapshots.get(finalI).get("price").toString()),documentSnapshots.get(finalI).get("team").toString()));
+                            if(documentSnapshot.contains("image"))
+                            listPlayer.add(0,new Player(documentSnapshots.get(finalI).get("playerName").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),documentSnapshot.get("image").toString(),true,Integer.parseInt(documentSnapshots.get(finalI).get("price").toString()),documentSnapshots.get(finalI).get("team").toString(), (Long) documentSnapshots.get(finalI).get("time")));
+                            else
+                                listPlayer.add(0,new Player(documentSnapshots.get(finalI).get("playerName").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),"default",true,Integer.parseInt(documentSnapshots.get(finalI).get("price").toString()),documentSnapshots.get(finalI).get("team").toString(),(Long) documentSnapshots.get(finalI).get("time")));
                             recyclerViewAdapter.updateAdapter(listPlayer);
-                            Log.d("debug","done");
                         }
                     });
                 }

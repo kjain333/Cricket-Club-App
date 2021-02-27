@@ -101,11 +101,11 @@ public class AuctionAddPlayer extends AppCompatActivity {
             public void onClick(View v) {
                 if(selectedPlayer!=null&&selectedTeam!=null&&price.getText()!=null)
                 {
-                    final Map<String,String> auctionedPlayer = new HashMap<>();
+                    final Map<String,Object> auctionedPlayer = new HashMap<>();
                     auctionedPlayer.put("playerId",selectedPlayerId);
                     auctionedPlayer.put("playerName",selectedPlayer);
                     auctionedPlayer.put("price",price.getText().toString());
-                    auctionedPlayer.put("time", String.valueOf(System.currentTimeMillis()));
+                    auctionedPlayer.put("time", System.currentTimeMillis());
                     collectionReference1.document(selectedTeam).collection("players").add(auctionedPlayer).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -140,6 +140,7 @@ public class AuctionAddPlayer extends AppCompatActivity {
                                         Map<String,Object> data = new HashMap<>();
                                         data.put("totalPlayers",1);
                                         data.put("totalMoney",Integer.parseInt(price.getText().toString()));
+                                        data.put("budget",200000);
                                         collectionReference1.document(selectedTeam).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {

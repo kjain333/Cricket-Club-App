@@ -11,13 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     Context mContext;
     List<Player> mData;
-
     public RecyclerViewAdapter(Context mContext, List<Player> mData) {
         this.mContext = mContext;
         this.mData = mData;
@@ -40,7 +45,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tvName.setText(mData.get(position).getName());
         holder.tvHostel.setText(mData.get(position).getHostel());
         holder.tvProgramme.setText(mData.get(position).getProgramme());
-        holder.img.setImageResource(mData.get(position).getPhoto());
+        if(mData.get(position).getPhoto().equals("default"))
+        {
+            holder.img.setImageResource(R.drawable.profile);
+        }
+        else
+        {
+            Picasso.get().load(mData.get(position).getPhoto()).into(holder.img);
+        }
         holder.tvAmount.setText(String.valueOf(mData.get(position).getAmount()) + " INR");
         boolean isSold = mData.get(position).isSold();
         if(isSold){
@@ -57,6 +69,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
     public void updateAdapter(List<Player> mDataList) {
         mData = mDataList;
+        Collections.sort(mData,new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Player p1 = (Player) o1;
+                Player p2 = (Player) o2;
+                return  String.valueOf(p2.getTime()).compareTo(String.valueOf(p1.getTime()));
+            }
+        });
         notifyDataSetChanged();
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
