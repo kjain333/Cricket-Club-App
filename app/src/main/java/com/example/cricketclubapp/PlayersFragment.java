@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +31,7 @@ public class PlayersFragment extends Fragment {
     private RecyclerView myRecyclerView;
     private List<Player> listPlayer;
     RecyclerViewAdapter recyclerViewAdapter;
+    ProgressBar pgBar;
     public PlayersFragment() {
     }
 
@@ -40,6 +43,7 @@ public class PlayersFragment extends Fragment {
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), listPlayer);
         myRecyclerView.setAdapter(recyclerViewAdapter);
+        pgBar = (ProgressBar) v.findViewById(R.id.pgBar);
         return v;
     }
 
@@ -50,6 +54,8 @@ public class PlayersFragment extends Fragment {
         FirebaseFirestore.getInstance().collection("auctionPlayers").orderBy("time", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                pgBar.setVisibility(View.VISIBLE);
                 final List<DocumentSnapshot> documentSnapshots = value.getDocuments();
                 listPlayer = new ArrayList<>();
                 final List<String> playerSold = new ArrayList<>();
@@ -61,6 +67,7 @@ public class PlayersFragment extends Fragment {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             Log.d("debug",documentSnapshot.get("hostel").toString());
+                            pgBar.setVisibility(View.GONE);
                             playerSold.add(documentSnapshot.getId());
                             listPlayer.add(new Player(documentSnapshots.get(finalI).get("playerName").toString(),documentSnapshot.get("hostel").toString(),documentSnapshot.get("programme").toString(),R.drawable.profile,true,Integer.parseInt(documentSnapshots.get(finalI).get("price").toString()),documentSnapshots.get(finalI).get("team").toString()));
                             recyclerViewAdapter.updateAdapter(listPlayer);
