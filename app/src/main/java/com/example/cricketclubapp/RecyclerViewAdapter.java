@@ -45,13 +45,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tvName.setText(mData.get(position).getName());
         holder.tvHostel.setText(mData.get(position).getHostel());
         holder.tvProgramme.setText(mData.get(position).getProgramme());
-        if(mData.get(position).getPhoto().equals("default"))
+        if(mData.get(position).getPhoto().contains("All-Rounder"))
         {
-            holder.img.setImageResource(R.drawable.profile);
+            holder.img.setImageResource(R.drawable.team);
+        }
+        else if(mData.get(position).getPhoto().contains("Batsman"))
+        {
+            holder.img.setImageResource(R.drawable.batsman);
         }
         else
         {
-            Picasso.get().load(mData.get(position).getPhoto()).into(holder.img);
+            holder.img.setImageResource(R.drawable.ball1);
         }
         holder.tvAmount.setText(String.valueOf(mData.get(position).getAmount()) + " INR");
         boolean isSold = mData.get(position).isSold();

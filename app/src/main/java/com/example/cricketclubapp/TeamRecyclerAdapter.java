@@ -2,6 +2,7 @@ package com.example.cricketclubapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -75,6 +76,14 @@ public class TeamRecyclerAdapter extends RecyclerView.Adapter<TeamRecyclerAdapte
             teamName = (TextView) itemView.findViewById(R.id.teamName);
             teamBudget = (TextView) itemView.findViewById(R.id.remBudget);
             teamSize = (TextView) itemView.findViewById(R.id.squadSize);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),AuctionPlayers.class);
+                    intent.putExtra("teamName",teamName.getText().toString());
+                    v.getContext().startActivity(intent);
+                }
+            });
 
         }
     }
