@@ -12,7 +12,7 @@
         android:id="@+id/spinner6"
         android:layout_width="236dp"
         android:layout_height="58dp"
-        android:background="#DDE3E8"
+        android:background="#ECEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

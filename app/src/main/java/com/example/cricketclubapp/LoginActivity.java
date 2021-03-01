@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,20 +23,26 @@ import com.google.firebase.ktx.Firebase;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText emailEditText;
-    EditText passwordEditText;
-    TextView switchTextView;
+    com.google.android.material.textfield.TextInputEditText emailEditText, passwordEditText;
     private FirebaseAuth mAuth;
-    Button updateBtn;
+    Button updateBtn, switchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailEditText = (EditText) findViewById(R.id.loginEmailEditText);
-        passwordEditText = (EditText) findViewById(R.id.loginPasswordEditText);
-        switchTextView = (TextView) findViewById(R.id.switchTextView);
+        if(Build.VERSION.SDK_INT >= 21){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.statusBarWhite));
+
+        }
+
+        emailEditText =  (com.google.android.material.textfield.TextInputEditText )findViewById(R.id.loginEmailEditText);
+        passwordEditText =  (com.google.android.material.textfield.TextInputEditText) findViewById(R.id.loginPasswordEditText);
+        switchButton = (Button) findViewById(R.id.switchButton);
         updateBtn = (Button) findViewById(R.id.updatePlayers);
         mAuth = FirebaseAuth.getInstance();
 
@@ -41,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             login();
         }
 
-        switchTextView.setOnClickListener(new View.OnClickListener() {
+        switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent switchIntent = new Intent(getApplicationContext(), SignupActivity.class);

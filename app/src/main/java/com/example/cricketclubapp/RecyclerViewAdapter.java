@@ -58,11 +58,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.img.setImageResource(R.drawable.ball1);
         }
         holder.tvAmount.setText(String.valueOf(mData.get(position).getAmount()) + " INR");
-        boolean isSold = mData.get(position).isSold();
+        boolean isSold = true;
+        if(mData.get(position).getAmount() == 0){
+            isSold = false;
+        }
         if(isSold){
             holder.tvStatus.setText("SOLD TO " + mData.get(position).getTeam());
         }else{
             holder.tvStatus.setText("UNSOLD");
+            holder.tvAmount.setVisibility(View.GONE);
         }
 
     }

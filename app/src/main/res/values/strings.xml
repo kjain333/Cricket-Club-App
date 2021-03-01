@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cricket Club App</string>
+    <string name="app_name">Cricket Club IITG</string>
     <string-array name="Hostels">
         <item>Brahmaputra</item>
         <item>Lohit</item>
@@ -13,11 +13,13 @@
         <item>Dibang</item>
         <item>Disang</item>
         <item>MSH</item>
+        <item>Staff</item>
     </string-array>
     <string-array name="Programme">
         <item>B.Tech</item>
         <item>M.Tech</item>
         <item>PHD</item>
+        <item>Staff</item>
     </string-array>
     <string-array name="Speciality">
         <item>Batsman</item>

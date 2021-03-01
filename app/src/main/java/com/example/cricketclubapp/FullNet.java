@@ -38,7 +38,10 @@ public class FullNet extends AppCompatActivity {
     List<String> shotTypes = new ArrayList<>();
     List<TextView> textViews = new ArrayList<>(18);
     Button addButton,finishButton;
-    EditText runsScored;
+    TextView runW, run0, run1, run2, run3, run4, run5, run6;
+    boolean isOut = false;
+//    EditText runsScored;
+    int runsOnThisBall=-1;
     int totalBowlsBowled=0;
     int totalRunsScored=0;
     ArrayAdapter adapter4,adapter5;
@@ -53,6 +56,8 @@ public class FullNet extends AppCompatActivity {
         selectedBatsmanId = intent.getStringExtra("selectedBatsmanId");
         final String targetRuns = intent.getStringExtra("targetRuns");
         final String targetBowls = intent.getStringExtra("targetBowls");
+        run1 = (TextView) findViewById(R.id.run1); run0 = findViewById(R.id.run0); run2 = findViewById(R.id.run2);
+        run3 = findViewById(R.id.run3); run4 = findViewById(R.id.run4); run6 = findViewById(R.id.run6); runW = findViewById(R.id.runW);
         Log.d("debug",selectedBatsman);
         Log.d("debug",selectedBatsmanId);
         Log.d("debug",bowlerNames.toString());
@@ -81,7 +86,6 @@ public class FullNet extends AppCompatActivity {
         shot = findViewById(R.id.spinner5);
         addButton = findViewById(R.id.button4);
         finishButton = findViewById(R.id.button5);
-        runsScored = findViewById(R.id.runsScored);
         lengthTypes.add("Yorker");
         lengthTypes.add("Half Volley");
         lengthTypes.add("Drive");
@@ -199,11 +203,11 @@ public class FullNet extends AppCompatActivity {
                     map.put("line",selectedLine);
                     map.put("length",selectedLength);
                     map.put("shot",selectedShot);
-                    if(runsScored.getText().toString()!=null&&!(runsScored.getText().toString().equals("")))
+                    if(runsOnThisBall != -1)
                     {
                         totalBowlsBowled++;
-                        totalRunsScored+=Integer.parseInt(runsScored.getText().toString());
-                        map.put("runs",runsScored.getText().toString());
+                        totalRunsScored+=runsOnThisBall;
+                        map.put("runs",String.valueOf(runsOnThisBall));
                     }
                     Log.d("debug",map.toString());
                     FirebaseFirestore.getInstance().collection("stats").document(formattedString).collection(selectedBatsmanId).add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -229,5 +233,49 @@ public class FullNet extends AppCompatActivity {
                     });
             }
         });
+
+        run0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 0;
+            }
+        });
+        run1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 1;
+            }
+        });
+        run2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 2;
+            }
+        });
+        run3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 3;
+            }
+        });
+        run4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 4;
+            }
+        });
+        run6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 6;
+            }
+        });
+        runW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runsOnThisBall = 0; isOut = true;
+            }
+        });
+
     }
 }
