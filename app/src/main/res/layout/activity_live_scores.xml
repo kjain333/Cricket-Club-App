@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LiveScores">
+    tools:context=".LiveMatchScore">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +37,7 @@
                 android:layout_weight="50">
 
              <TextView
+                 android:id="@+id/battingTeam"
                  android:layout_width="match_parent"
                  android:layout_height="30dp"
                  android:text="Team A"
@@ -45,6 +46,7 @@
                  android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/runs"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="0 - 0"
@@ -71,6 +73,7 @@
                     android:gravity="center"/>
 
                 <TextView
+                    android:id="@+id/overs"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:text="0.0"
@@ -85,6 +88,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/target"
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:text="Target:"
@@ -106,6 +110,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/batsmanName1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Batsman 1"
@@ -116,6 +121,7 @@
                     android:layout_weight="50"/>
 
                 <TextView
+                    android:id="@+id/batsmanScore1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -136,6 +142,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/batsmanName2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Batsman 2"
@@ -147,6 +154,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/batsmanScore2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="0"
