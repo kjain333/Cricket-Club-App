@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LiveScores">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/teamsTV"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Team A vs Team B"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/antic"
+            android:textStyle="bold"
+            android:textColor="@color/statusBarWhite"
+            android:background="#262729"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="vertical"
+                android:layout_weight="50">
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="30dp"
+                 android:text="Team A"
+                 android:textAlignment="center"
+                 android:gravity="center"
+                 android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="0 - 0"
+                android:textSize="40sp"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="vertical"
+                android:layout_weight="50">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="Overs"
+                    android:layout_weight="50"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="0.0"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:layout_weight="50"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Target:"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/statusBarWhite"
+            android:background="#9C27B0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Batsman 1"
+                    android:paddingLeft="40dp"
+                    android:textSize="18sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="50"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Batsman 2"
+                    android:paddingLeft="40dp"
+                    android:textSize="18sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="50"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_weight="50"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
