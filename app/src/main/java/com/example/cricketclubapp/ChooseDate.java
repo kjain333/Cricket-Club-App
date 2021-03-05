@@ -34,6 +34,9 @@ public class ChooseDate extends AppCompatActivity {
                     if(i1 < 9){
                         date = i + "0" + (i1+1) + "" +  i2;
                     }
+                    if(i2 <= 9){
+                        date =  i + "0" + (i1+1) + "0" +  i2;
+                    }
                     intent.putExtra("date", date);
                     startActivity(intent);
                 }else if(type == 3){
@@ -41,6 +44,9 @@ public class ChooseDate extends AppCompatActivity {
                     String date = i + "" + (i1+1) + "" +  i2;
                     if(i1 < 9){
                         date =  i + "0" + (i1+1) + "" +  i2;
+                    }
+                    if(i2 <= 9){
+                        date =  i + "0" + (i1+1) + "0" +  i2;
                     }
                     intent.putExtra("date", date);
                     startActivity(intent);

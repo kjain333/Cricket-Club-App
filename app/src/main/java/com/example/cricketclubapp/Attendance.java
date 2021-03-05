@@ -45,7 +45,7 @@ public class Attendance extends AppCompatActivity {
         names = (ListView) findViewById(R.id.attendance);
         names.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.checked_list, users);
-        collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
@@ -54,7 +54,10 @@ public class Attendance extends AppCompatActivity {
                     String username = documentSnapshot.get("username").toString();
                     users.add(username);
                 }
-
+                for(int i=0;i<users.size();i++)
+                {
+                    names.setItemChecked(i,true);
+                }
                 adapter.notifyDataSetChanged();
             }
         });

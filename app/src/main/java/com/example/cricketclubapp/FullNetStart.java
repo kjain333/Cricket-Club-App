@@ -48,7 +48,7 @@ public class FullNetStart extends AppCompatActivity {
         names.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.checked_list, users);
         adapter1 = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, users);
-        collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())

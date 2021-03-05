@@ -43,7 +43,7 @@ public class FieldingSelfPractice extends AppCompatActivity {
         drill = (TextView) findViewById(R.id.fieldingDrill);
         score = (TextView) findViewById(R.id.fieldingScore);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,users);
-        FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("users").orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> data = queryDocumentSnapshots.getDocuments();

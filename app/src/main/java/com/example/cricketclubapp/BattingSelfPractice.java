@@ -58,7 +58,7 @@ public class BattingSelfPractice extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,users);
         adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,shots);
         shot.setAdapter(adapter1);
-        FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("users").orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> data = queryDocumentSnapshots.getDocuments();

@@ -51,7 +51,7 @@ public class FullNetStats extends AppCompatActivity {
         allStats = findViewById(R.id.table_main);
         challenge = findViewById(R.id.challenge);
         players = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,names);
-        FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("users").orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> data = queryDocumentSnapshots.getDocuments();

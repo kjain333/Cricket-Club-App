@@ -75,7 +75,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
 
             }
         });*/
-        collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
@@ -90,7 +90,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 winner = adapterView.getItemAtPosition(i).toString();
-                collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
@@ -114,7 +114,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 runnerUp = adapterView.getItemAtPosition(i).toString();
-                collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())
@@ -139,7 +139,7 @@ public class FitnessDrillActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 secondRunnerUp = adapterView.getItemAtPosition(i).toString();
-                collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                collectionReference.orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots.getDocuments())

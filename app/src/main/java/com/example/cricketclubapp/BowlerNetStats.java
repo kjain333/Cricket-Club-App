@@ -70,7 +70,7 @@ public class BowlerNetStats extends AppCompatActivity {
 
 
         players = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,names);
-        FirebaseFirestore.getInstance().collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("users").orderBy("username").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> data = queryDocumentSnapshots.getDocuments();
