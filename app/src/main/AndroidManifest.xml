@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LiveMatchScore"></activity>
+        <activity android:name=".MatchStats"></activity>
+        <activity android:name=".BowlingMatch" />
+        <activity android:name=".BattingMatch" />
+        <activity android:name=".LiveMatchScore" />
         <activity android:name=".Auctions" /> <!-- <activity -->
         <!-- android:name=".Auctions" -->
         <!-- android:label="@string/title_activity_auctions" -->
