@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MatchStats"></activity>
+        <activity android:name=".MatchChoose"></activity>
+        <activity android:name=".UpdateLiveMatchScore" />
+        <activity android:name=".MatchStats" />
         <activity android:name=".BowlingMatch" />
         <activity android:name=".BattingMatch" />
         <activity android:name=".LiveMatchScore" />

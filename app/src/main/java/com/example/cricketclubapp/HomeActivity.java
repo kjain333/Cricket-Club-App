@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     CircleImageView profileImageView;
     TextView dashboardView;
     String name, hostel, speciality, programme;
-    CardView drillsLt, netsLt;
+    CardView drillsLt, netsLt,matchLt;
     RelativeLayout attendanceLt, statsLt, rankingsLt;
     private DatabaseReference databaseReference;
     private DocumentReference documentReference;
@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         rankingsLt = findViewById(R.id.rankingsLt);
         attendanceLt = findViewById(R.id.attendanceLt);
         netsLt = (CardView) findViewById(R.id.netsLt);
+        matchLt = (CardView) findViewById(R.id.matchLayout);
         statsLt = findViewById(R.id.statsLt);
         t2 = (TextView) findViewById(R.id.t2);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
@@ -85,6 +86,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), DrillsActivity.class);
+                startActivity(intent);
+            }
+        });
+        matchLt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MatchChoose.class);
                 startActivity(intent);
             }
         });

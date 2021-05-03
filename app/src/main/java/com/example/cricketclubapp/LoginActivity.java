@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+           //     Toast.makeText(getBaseContext(),"Please contact admin for signup",Toast.LENGTH_LONG).show();
                 Intent switchIntent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(switchIntent);
             }
